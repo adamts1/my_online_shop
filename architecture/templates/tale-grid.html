@@ -1,0 +1,215 @@
+{% extends "layout.html" %}
+{% block body %}
+    <!-- Product Section Begin -->
+    <section class="hero hero-normal">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                </div>
+                <div class="col-lg-4">
+                </div>
+                <div class="col-lg-4 col-sm-12">
+                    <div class="hero__categories">
+                        <div class="hero__categories__all">
+                            <i class="fa fa-bars"></i>
+                            <span class="float-right">טלה</span>
+                        </div>
+                        <ul>
+                            <li class = "custom_li active"><a href="{{ url_for('main.tale') }}">טלה</a></li>
+                            <li class = "custom_li"><a href="#">עוף</a></li>
+                            <li class = "custom_li"><a href="#">הודו</a></li>
+                            <li class = "custom_li"><a href="#">אווז</a></li>
+                            <li class = "custom_li"><a href="#">טחונים</a></li>
+                            <li class = "custom_li"><a href="#">סטייקים</a></li>
+                            <li class = "custom_li"><a href="#">מוצרים אורגניים</a></li>
+                            <li class = "custom_li"><a href="#">דלי שומן</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Breadcrumb Section Begin -->
+    <section class="breadcrumb-section set-bg" data-setbg="{{ url_for("static", filename="img/breadcrumb.jpg") }}">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="breadcrumb__text">
+                        <h2>נתחי טלה מובחרים</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Breadcrumb Section Begin -->
+    <!-- Hero Section End -->
+    <section class="product spad">
+        <div class="container">
+            <div class="row show-grid">
+                <div class="col-lg-12 col-md-12">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <div class="product__item" data-product_id="1" data-product_price="9.99"  data-quantity="0" product_name="סטייק טלה">
+                                <div class="product__item__pic set-bg" data-setbg="{{ url_for("static", filename="img/tale/3.jfif") }}"></div>
+                                <div class="product__item__text">
+                                    <h6><a href="#">סטייק טלה</a></h6>
+                                    <h5>10.00</h5>
+                                </div>
+                                <hr>
+                                <div class="amount_wrapper">
+                                    <div id="add_button_div"><button class="add_button">הוספה</button></div>
+                                    <div class="choose_amount">
+                                        <i class="fa fa-minus choose_amount amount_icons"></i>
+                                        <input class="choose_amount" value="0" type="number"  dir="ltr" data-source-step="0">
+                                        <i class="fa fa-plus choose_amount amount_icons"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <div class="product__item" data-product_id="2" data-product_price="4.99"  data-quantity="0" product_name="צלעות טלה">
+                                <div class="product__item__pic set-bg" data-setbg="{{ url_for("static", filename="img/tale/4.jpg") }}">
+
+                                </div>
+                                <div class="product__item__text">
+                                    <h6><a href="#">צלעות טלה</a></h6>
+                                    <h5>10.00</h5>
+                                </div>
+                                <hr>
+                                <div class="amount_wrapper">
+                                    <div id="add_button_div"><button class="add_button">הוספה</button></div>
+                                    <div class="choose_amount">
+                                        <i class="choose_amount fa fa-minus amount_icons"></i>
+                                        <input class="choose_amount" value="0" type="number" dir="ltr" data-source-step="1">
+                                        <i class="fa fa-plus choose_amount amount_icons"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <div class="product__item" data-product_id="3" data-product_price="4.99"  data-quantity="0" product_name="צלעות טלה">
+                                <div class="product__item__pic set-bg" data-setbg="{{ url_for("static", filename="img/tale/5.jpg") }}">
+
+                                </div>
+                                <div class="product__item__text">
+                                    <h6><a href="#">צלעות טלה</a></h6>
+                                    <h5>10.00</h5>
+                                </div>
+                                <hr>
+                                <div class="amount_wrapper">
+                                    <div id="add_button_div"><button class="add_button">הוספה</button></div>
+                                    <div class="choose_amount">
+                                        <i class="choose_amount fa fa-minus amount_icons"></i>
+                                        <input class="choose_amount" value="0" type="number" dir="ltr" data-source-step="1">
+                                        <i class="fa fa-plus choose_amount amount_icons"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <div class="product__item" data-product_id="6" data-product_price="4.99"  data-quantity="0" product_name="צלעות טלה">
+                                <div class="product__item__pic set-bg" data-setbg="{{ url_for("static", filename="img/tale/8.jfif") }}">
+
+                                </div>
+                                <div class="product__item__text">
+                                    <h6><a href="#">צלעות טלה</a></h6>
+                                    <h5>10.00</h5>
+                                </div>
+                                <hr>
+                                <div class="amount_wrapper">
+                                    <div id="add_button_div"><button class="add_button">הוספה</button></div>
+                                    <div class="choose_amount">
+                                        <i class="choose_amount fa fa-minus amount_icons"></i>
+                                        <input class="choose_amount" value="0" type="number" dir="ltr" data-source-step="1">
+                                        <i class="fa fa-plus choose_amount amount_icons"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <div class="product__item" data-product_id="2" data-product_price="4.99"  data-quantity="0" product_name="צלעות טלה">
+                                <div class="product__item__pic set-bg" data-setbg="{{ url_for("static", filename="img/tale/7.jpg") }}">
+
+                                </div>
+                                <div class="product__item__text">
+                                    <h6><a href="#">צלעות טלה</a></h6>
+                                    <h5>10.00</h5>
+                                </div>
+                                <hr>
+                                <div class="amount_wrapper">
+                                    <div id="add_button_div"><button class="add_button">הוספה</button></div>
+                                    <div class="choose_amount">
+                                        <i class="choose_amount fa fa-minus amount_icons"></i>
+                                        <input class="choose_amount" value="0" type="number" dir="ltr" data-source-step="1">
+                                        <i class="fa fa-plus choose_amount amount_icons"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <div class="product__item" data-product_id="4" data-product_price="4.99"  data-quantity="0" product_name="צלעות טלה">
+                                <div class="product__item__pic set-bg" data-setbg="{{ url_for("static", filename="img/tale/4.jpg") }}">
+
+                                </div>
+                                <div class="product__item__text">
+                                    <h6><a href="#">צלעות טלה</a></h6>
+                                    <h5>10.00</h5>
+                                </div>
+                                <hr>
+                                <div class="amount_wrapper">
+                                    <div id="add_button_div"><button class="add_button">הוספה</button></div>
+                                    <div class="choose_amount">
+                                        <i class="choose_amount fa fa-minus amount_icons"></i>
+                                        <input class="choose_amount" value="0" type="number" dir="ltr" data-source-step="1">
+                                        <i class="fa fa-plus choose_amount amount_icons"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <div class="product__item" data-product_id="2" data-product_price="4.99"  data-quantity="0" product_name="צלעות טלה">
+                                <div class="product__item__pic set-bg" data-setbg="{{ url_for("static", filename="img/tale/5.jpg") }}">
+
+                                </div>
+                                <div class="product__item__text">
+                                    <h6><a href="#">צלעות טלה</a></h6>
+                                    <h5>10.00</h5>
+                                </div>
+                                <hr>
+                                <div class="amount_wrapper">
+                                    <div id="add_button_div"><button class="add_button">הוספה</button></div>
+                                    <div class="choose_amount">
+                                        <i class="choose_amount fa fa-minus amount_icons"></i>
+                                        <input class="choose_amount" value="0" type="number" dir="ltr" data-source-step="1">
+                                        <i class="fa fa-plus choose_amount amount_icons"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <div class="product__item" data-product_id="5" data-product_price="4.99"  data-quantity="0" product_name="צלעות טלה">
+                                <div class="product__item__pic set-bg" data-setbg="{{ url_for("static", filename="img/tale/6.jpg") }}">
+
+                                </div>
+                                <div class="product__item__text">
+                                    <h6><a href="#">צלעות טלה</a></h6>
+                                    <h5>10.00</h5>
+                                </div>
+                                <hr>
+                                <div class="amount_wrapper">
+                                    <div id="add_button_div"><button class="add_button">הוספה</button></div>
+                                    <div class="choose_amount">
+                                        <i class="choose_amount fa fa-minus amount_icons"></i>
+                                        <input class="choose_amount" value="0" type="number" dir="ltr" data-source-step="1">
+                                        <i class="fa fa-plus choose_amount amount_icons"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Product Section End -->
+{% endblock %}

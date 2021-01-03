@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Ogani Template">
+    <meta name="keywords" content="Ogani, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ogani | Template</title>
+
+    <!-- Google Font -->
+    {#    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">#}
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="{{ url_for("static", filename="css/bootstrap.min.css") }}" type="text/css">
+    <link rel="stylesheet" href="{{ url_for("static", filename="css/font-awesome.min.css") }}" type="text/css">
+    <link rel="stylesheet" href="{{ url_for("static", filename="css/bootstrap.min.css") }}" type="text/css">
+    <link rel="stylesheet" href="{{ url_for("static", filename="css/nice-select.css") }}" type="text/css">
+    <link rel="stylesheet" href="{{ url_for("static", filename="css/jquery-ui.min.css") }}" type="text/css">
+    <link rel="stylesheet" href="{{ url_for("static", filename="css/owl.carousel.min.css") }}" type="text/css">
+    <link rel="stylesheet" href="{{ url_for("static", filename="css/slicknav.min.css") }}" type="text/css">
+    <link rel="stylesheet" href="{{ url_for("static", filename="/css/style.css") }}" type="text/css">
+    <link rel="stylesheet" href="{{ url_for("static", filename="/css/animation.css") }}" type="text/css">
+    <link rel="stylesheet" href="{{ url_for("static", filename="/css/checkout.css") }}" type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+<!-- Page Preloder -->
+<div id="preloder">
+    <div class="loader"></div>
+</div>
+
+<!-- Humberger Begin -->
+<div class="humberger__menu__overlay"></div>
+<div class="humberger__menu__wrapper">
+    <div class="humberger__menu__logo">
+        <a href="#"><img src="{{ url_for("static", filename="img/logo.png") }}" alt=""></a>
+    </div>
+    <div class="humberger__menu__cart">
+        <ul>
+            <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
+            <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+        </ul>
+        <div class="header__cart__price">item: <span>$150.00</span></div>
+    </div>
+    <div class="humberger__menu__widget">
+        <div class="header__top__right__language">
+            <img src="{{ url_for("static", filename="img/language.png") }}" alt="">
+            <div>English</div>
+            <span class="arrow_carrot-down"></span>
+            <ul>
+                <li><a href="#">Spanis</a></li>
+                <li><a href="#">English</a></li>
+            </ul>
+        </div>
+        <div class="header__top__right__auth">
+            <a href="#"><i class="fa fa-user"></i> Login</a>
+        </div>
+    </div>
+    <nav class="humberger__menu__nav mobile-menu">
+        <ul>
+            <li class="custom_li"><a href="{{ url_for('main.index') }}">ראשי</a></li>
+            <li class="custom_li"><a href="#">אודותינו</a>
+            <li class="custom_li"><a href="#" >תעודת כשרות</a></li></li>
+            <li class="custom_li"><a href="#">בלוג בריאות</a></li>
+            <li class="custom_li"><a href="{{ url_for('main.contact') }}">צור קשר</a></li>
+        </ul>
+    </nav>
+    <div id="mobile-menu-wrap"></div>
+    <div class="header__top__right__social">
+        <a href="#"><i class="fa fa-facebook"></i></a>
+        <a href="#"><i class="fa fa-twitter"></i></a>
+        <a href="#"><i class="fa fa-linkedin"></i></a>
+        <a href="#"><i class="fa fa-pinterest-p"></i></a>
+    </div>
+    <div class="humberger__menu__contact">
+        <ul>
+            <li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
+            <li>Free Shipping for all Order of $99</li>
+        </ul>
+    </div>
+</div>
+<!-- Humberger End -->
+
+<!-- Header Section Begin -->
+<header class="header">
+    <div class="header__top">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-6">
+                    <div class="header__top__right">
+                        <div class="header__top__right__auth .custom_li" >
+                            <a href="#" ><i class="fa fa-user"></i> התחברות </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {#    <div class="header_main">#}
+    <div class="header__nav_bar">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2">
+                    <div class="header__cart">
+                        <ul class="cart_icon float-left">
+                            <li><a href="#"><i class="fa fa-shopping-bag" style="color: white"></i> <span id="total_type_amount_number">0</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!--bar-->
+                <div class="col-lg-8">
+                    <nav class="header__menu">
+                        <ul>
+                            <li id ="contact_menu"><a href="{{ url_for('main.contact') }}">צור קשר</a></li>
+                            <li id ="kosher_menu"><a href="{{ url_for('main.index') }}">תעודת כשרות</a></li>
+                            <li id ="blog_menu"><a href="{{ url_for('main.index') }}">בלוג בריאות</a>
+                                <ul class="header__menu__dropdown">
+                                    <li><a class="custom_li" href="{{ url_for('main.index') }}">בלוג ספורט</a></li>
+                                    <li><a class="custom_li" href="{{ url_for('main.index') }}">תזונה ואוכל</a></li>
+                                    <li><a class="custom_li" href="{{ url_for('main.index') }}">ויטמנים</a></li>
+                                    <li><a class="custom_li" href="{{ url_for('main.index') }}">מתכונים בריאים</a></li>
+                                </ul>
+                            </li>
+                            <li id ="about_us_menu"><a href="{{ url_for('main.index') }}">אודותינו</a></li>
+                            <li id ="home_menu" ><a href="{{ url_for('main.index') }}">ראשי</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <!--icon-->
+                <div class="col-lg-2 col-md-12 col-sm-12">
+                    <div class="header__logo">
+                        <a href="index.html"><img src="{{ url_for("static", filename="img/logo.png") }}" alt=""></a>
+                    </div>
+                </div>
+            </div>
+            <div class="humberger__open">
+                <i class="fa fa-bars"></i>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Header Section End -->
+
+{% block body %}{% endblock %}
+<footer class="footer spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="footer__copyright">
+                    <div class="footer__copyright__text"><p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p></div>
+                    <div class="footer__copyright__payment"><img src="{{ url_for("static", filename="img/payment-item.png") }}" alt=""></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- Footer Section End -->
+
+<!-- Pop-up Section Start -->
+<div class="cart_popup">
+    <div class="cart_head">
+        <div class="row">
+            <div class="popup_close col-4" style="padding: 12px">
+                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 15 15" enable-background="new 0 0 15 15" xml:space="preserve" width="18px">
+                <polygon  ftotal_type_amount_numberill="#cbd3da" points="14.2,2.2 12.8,0.8 7.5,6.1 2.2,0.8 0.8,2.2 6.1,7.5 0.8,12.8 2.2,14.2 7.5,8.9 12.8,14.2 14.2,12.8
+                  8.9,7.5 "></polygon>
+                </svg>
+            </div>
+            <div  class ="col-8">
+                <h3 class ="float-right"><span> הסל שלי, <span class="num_of_items">0</span></span> מוצרים </h3>
+            </div>
+        </div>
+    </div>
+    <div class="cart_full">
+        <div class="cart_overview"></div>
+        <div class="cart_bottom">
+            <div class="row">
+                <div class="col-6">₪<span class="price_tp_pay"></span></div>
+                <div class="col-6"><span class = "float-right">סכום ביניים</span></div>
+            </div>
+            <div class="row">
+                <div class="col-6">₪<span>0</span></div>
+                <div class="col-6"><span class = "float-right">דמי משלוח</span></div>
+            </div>
+            <a href={{ url_for('main.checkout') }} class="primary-btn"><span>לביצוע הזמנה   </span><span class="price_tp_pay" ><span>₪</span>0</span></a>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- Pop-up Section End -->
+
+<!-- Js Plugins -->
+<script src="{{ url_for("static", filename="js/jquery-3.3.1.min.js") }}"></script>
+<script src="{{ url_for("static", filename="js/bootstrap.min.js") }}"></script>
+<script src="{{ url_for("static", filename="js/jquery.nice-select.min.js") }}"></script>
+<script src="{{ url_for("static", filename="js/jquery-ui.min.js") }}"></script>
+<script src="{{ url_for("static", filename="js/jquery.slicknav.js") }}"></script>
+<script src="{{ url_for("static", filename="js/mixitup.min.js") }}"></script>
+<script src="{{ url_for("static", filename="js/owl.carousel.min.js") }}"></script>
+<script src="{{ url_for("static", filename="js/main.js") }}"></script>
+<script src="{{ url_for("static", filename="js/animation.js") }}"></script>
+<script src="{{ url_for("static", filename="js/checkout_form.js") }}"></script>
+{#jquery form_validation cdn#}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+<script src="{{ url_for("static", filename="js/form-validation.js") }}"></script>
+
+</body>
+
+</html>

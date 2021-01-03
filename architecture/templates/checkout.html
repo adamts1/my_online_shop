@@ -1,0 +1,158 @@
+{% extends "layout.html" %}
+{% block body %}
+    {#{% from "_formhelpers.html" import render_field %}#}
+
+    <!-- Header Section End -->
+    <!-- Checkout Section Begin -->
+    <section class="checkout spad">
+        <div class="container">
+            <div class="checkout__form text-right">
+                <form action="/create" method="post" id="checkout_form" name="checkout_form" >
+                    <h3>קופה</h3>
+                    <div class="row">
+                        <div class="col-lg-4 col-md-12">
+                            <h4>1. שם וכתובת</h4>
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="checkout__input">
+                                        <p>שם פרטי<span>*</span></p>
+                                        {{ form.first_name}}
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="checkout__input">
+                                        <p>שם משפחה<span>*</span></p>
+                                        <input type="text" name="sure_name">
+                                        {# hidden element populates with the cart obj from via data_request.js #}
+                                        <input type="hidden" id="cart_object" name="cart_object">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="checkout__input">
+                                        <p>טלפון<span>*</span></p>
+                                        {{form.phone}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="checkout__input">
+                                        <p>כתובת<span>*</span></p>
+                                        {{form.address}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="checkout__input">
+                                        <p>עיר/ישוב<span>*</span></p>
+                                        {{form.city}}
+                                    </div>
+                                </div>
+                            </div>
+                            {{form.f_s_delivery(type="checkbox", class="checkout__input__checkbox f_s_delivery", checked = "true")}}
+                            <span> שלח לכתובת זו </span>
+                            <div class="shipping-address">
+                                <h4>כתובת למשלוח</h4>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="checkout__input">
+                                            <p>שם פרטי<span>*</span></p>
+                                            {{form.s_first_name}}
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="checkout__input">
+                                            <p>שם משפחה<span>*</span></p>
+                                            {{form.s_sure_name}}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="checkout__input">
+                                            <p>כתובת<span>*</span></p>
+                                            {{form.s_address}}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="checkout__input">
+                                            <p>טלפון<span>*</span></p>
+                                            {{form.s_phone}}
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="checkout__input">
+                                            <p>אזור/ מחוז<span>*</span></p>
+                                            {{form.s_city}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-12">
+                            <h4>2. שיטת משלוח</h4>
+                            {{form.s_method}}
+                            <div class="row take_away_div">
+                                <div class="col-lg-7">
+                                    <div class="checkout__input">
+                                        <p>יום לאיסוף<span>*</span></p>
+                                        {{form.t_day(type="date")}}
+                                    </div>
+                                </div>
+                                <div class="col-lg-5">
+                                    <div class="checkout__input">
+                                        <p>שעת איסוף<span>*</span></p>
+                                        {{form.t_hour}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row delivery_div">
+                                <div class="col-lg-7">
+                                    <div class="checkout__input">
+                                        <p>יום למשלוח<span>*</span></p>
+                                        {{form.s_day(type="date")}}
+                                    </div>
+                                </div>
+                                <div class="col-lg-5">
+                                    <div class="checkout__input">
+                                        <p>שעת משלוח<span>*</span></p>
+                                        {{form.s_hour}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="checkout__input">
+                                        <p>הערות משלוח</p>
+                                        <input type="text" id="s_comment" name="s_comment">
+                                    </div>
+                                </div>
+                            </div>
+                            <h4>3. שיטת תשלום</h4>
+                            {{form.p_method}}
+                        </div>
+                        <div class="col-lg-4 col-md-12">
+                            <h4>סקירת הזמנה</h4>
+                            <div class="cart_full">
+                                <div class="checkout__order__products">מוצר<span>מחיר</span></div>
+                                <div class="cart_overview"></div>
+                            </div>
+                            <div class ="checkout__order">
+                                <div class="checkout__order__total">סה"כ<span>ש"ח 750.99</span></div>
+                                <span>מאשר/ת את תקנון האתר </span>
+                                <input type="checkbox" class="checkout__input__checkbox" name="policy_confermation">
+                                <button type="submit" class="site-btn payment">בצעו הזמנה</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <!-- Checkout Section End -->
+{% endblock %}
