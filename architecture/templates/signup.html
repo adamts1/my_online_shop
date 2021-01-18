@@ -1,32 +1,58 @@
-{% extends "base.html" %}
-
-{% block content %}
-    <div class="column is-4 is-offset-4">
-        <h3 class="title">Sign Up</h3>
-        <div class="box">
-                    <div class="notification is-danger">
+{% extends "layout.html" %}
+{% block body %}
+    <section class="breadcrumb-section set-bg" data-setbg="{{ url_for("static", filename="img/breadcrumb.jpg") }}"></section>
+    <section class="hero">
+        <div class="inner_width z--1">
+            <div class="width--730 center">
+                <h1 class="title--big">ביצוע הזמנה</h1>
+                <div class="box--white relative">
+                    <div class="log-tx-top">צרו חשבון חדש או הכנסו לחשבון קיים</div>
+                    <div class="log_tab">
+                        <div class="log_tabs_in swipe-tabs center relative flex">
+                            <a id="not_member" class="log_tab title--36 swipe-tab active">לקוח חדש</a>
+                            <a id="member" class="log_tab title--36 swipe-tab ">לקוח קיים</a>
+                        </div>
                     </div>
-            <form method="POST" action="/signup">
-                <div class="field">
-                    <div class="control">
-                        <input class="input is-large" type="email" name="email" placeholder="Email" autofocus="">
+                    <div class="log_fields">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="checkout__input">
+                                    <input id="username" name="username" placeholder="שם משתמש" type="text" value="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="checkout__input">
+                                    <input id="password" name="password" placeholder="סיסמה" type="text" >
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <a class="float-right">?שכחת סיסמה</a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <button type="submit" class="site-btn payment">כניסה</button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="or_line center relative">
+                                    <hr>
+                                    <div class="or_line_text z--1">או כניסה באמצעות</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="auth_login flex flex--content--center">
+                            <a class="bt_border">Google</a>
+                            <a class="bt_border">Facebook</a>
+                        </div>
                     </div>
                 </div>
-
-                <div class="field">
-                    <div class="control">
-                        <input class="input is-large" type="text" name="name" placeholder="Name" autofocus="">
-                    </div>
-                </div>
-
-                <div class="field">
-                    <div class="control">
-                        <input class="input is-large" type="password" name="password" placeholder="Password">
-                    </div>
-                </div>
-
-                <button class="button is-block is-info is-large is-fullwidth">Sign Up</button>
-            </form>
+            </div>
         </div>
-    </div>
+    </section>
 {% endblock %}

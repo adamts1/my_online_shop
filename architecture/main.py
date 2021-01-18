@@ -5,6 +5,7 @@ import json
 from .models import Order, Product
 
 main = Blueprint('main', __name__)
+
 db.create_all(app=create_app())
 
 
@@ -52,4 +53,16 @@ def payment():
 
         return render_template("payment.html")
     return render_template("checkout.html", form=form)
+
+@main.after_request
+def add_header(r):
+    """
+    Add headers to both force latest IE rendering engine or Chrome Frame,
+    and also to cache the rendered page for 10 minutes.
+    """
+    r.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
+    r.headers["Pragma"] = "no-cache"
+    r.headers["Expires"] = "0"
+    r.headers['Cache-Control'] = 'public, max-age=0'
+    return r
 
