@@ -17,16 +17,21 @@ class RegistrationForm(Form):
     s_phone = StringField('s_phone', [RequiredIf('f_s_delivery')])
     s_city = StringField('s_city', [RequiredIf('f_s_delivery')])
 
-    # # Shipping method radio button
-    s_method = RadioField('', choices=[('take-away','איסוף עצמי מיד חרוצים'),('delivery','שליח עד הבית עד 24 שעות 25.00 ₪')])
+    # Shipping method radio button
+    s_method = RadioField('', choices=[('take-away','איסוף עצמי מיד חרוצים'), ('delivery','שליח עד הבית עד 24 שעות 25.00 ₪')])
 
     # Shipping method delivery`
     s_day = DateField('s_day', [ReqRadioButton('s_method')])
     s_hour =SelectField('', choices=[('12', '12:00'), ('13', '13:00'), ('17', '17:00')])
 
-    # # Shipping method take-away
+    # Shipping method take-away
     t_day = DateField('t_day', [ReqRadioButton('s_method')])
     t_hour = SelectField('', choices=[('12', '12:00'), ('13', '13:00'), ('17', '17:00')])
-
-
     p_method = RadioField('', choices=[('credit', 'תשלום באשראי'),('phone', 'תשלום בטלפון')])
+
+
+class signupForm(Form):
+    email_signup = StringField('email_signup', [validators.required()])
+    username_signup = StringField('username_signup', [validators.required()])
+    password_signup = StringField('password_signup', [validators.required()])
+    repassword_signup = StringField('repassword_signup', [validators.required()])

@@ -3145,7 +3145,7 @@ form .error {
 	padding-bottom: 10px;
 }
 
-.log_fields{
+.log_container{
 	max-width: 350px;
 	margin: 0 auto;
 }
@@ -3156,7 +3156,7 @@ form .error {
 
 .title--36 {
 	font-family: 'Varela Round', sans-serif;
-	font-size: 36px;
+	font-size: 30px;
 	color: #244A42;
 	font-weight: 300;
 	line-height: 1.1;
@@ -3164,7 +3164,7 @@ form .error {
 	opacity: 0.6;
 }
 
-.log_fields input{
+.log_container input{
 	height: 55px;
 }
 
@@ -3223,6 +3223,14 @@ form .error {
 
 .auth_login{
 	padding-bottom: 50px;
+}
+
+.log_container{
+	display: none;
+}
+
+.log_container.active{
+	display: block;
 }
 /*--------------------------------- customized  -----------------------------*/
 

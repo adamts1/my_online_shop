@@ -72,4 +72,27 @@
       form.submit();
     }
   });
+
+  $("form[name='signup_form']").validate({
+    // Specify form_validation rules
+    rules: {
+      email_signup: "required",
+      username_signup: "required",
+      password_signup: "required",
+      repassword_signup: {
+        equalTo: "#password_signup"
+      }
+    },
+    // Specify form_validation error messages
+    messages: {
+      email_signup: "שדה חובה",
+      username_signup: "שדה חובה",
+      password_signup: "שדה חובה",
+      repassword_signup: "סיסמאות לא זהות"
+    },
+    submitHandler: function(form) {
+      form.submit();
+    }
+  });
+
 })(jQuery);
