@@ -14,18 +14,25 @@
                         </div>
                     </div>
                     <div id="log_in" class="log_container active">
-                        <form action="/logged-in" method="post" id="login_form" name="login_form" >
+                        <form action="/log_in" method="post" id="login_form" name="login_form" >
                             <div class="row">
                                 <div class="col-12">
                                     <div class="checkout__input">
-                                        <input id="username" name="username" placeholder="שם משתמש" type="text" value="">
+                                        <input id="email" name="email" placeholder="אימייל" type="text" >
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-12">
                                     <div class="checkout__input">
-                                        <input id="password" name="password" placeholder="סיסמה" type="text" >
+                                        <input id="password" name="password" placeholder="סיסמה" type="password" >
+                                        {% with messages = get_flashed_messages() %}
+                                            {% if messages %}
+                                                <div class="error">
+                                                    {{ messages[0] }}
+                                                </div>
+                                            {% endif %}
+                                        {% endwith %}
                                     </div>
                                 </div>
                             </div>
@@ -65,14 +72,14 @@
                             <div class="row">
                                 <div class="col-12">
                                     <div class="checkout__input">
-                                          {{form.username_signup(placeholder="שם משתמש")}}
+                                        {{form.username_signup(placeholder="שם משתמש")}}
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-12">
                                     <div class="checkout__input">
-                                          {{form.password_signup(type="password", placeholder="סיסמה")}}
+                                        {{form.password_signup(type="password", placeholder="סיסמה")}}
                                     </div>
                                 </div>
                             </div>

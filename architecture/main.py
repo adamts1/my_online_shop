@@ -1,3 +1,4 @@
+from flask_login import current_user
 from flask import Blueprint, render_template, request
 from architecture.form_validation.main_validation import RegistrationForm
 from . import db, create_app
@@ -5,13 +6,16 @@ import json
 from .models import Order, Product
 
 main = Blueprint('main', __name__)
-
 db.create_all(app=create_app())
 
 
 @main.route("/")
 def index():
-    return render_template("index.html")
+    if current_user.is_authenticated:
+        return render_template("index.html", name=current_user.email)
+    else:
+        return render_template("index.html")
+
 
 
 @main.route("/tale")
@@ -43,14 +47,9 @@ def payment():
         db.session.add(new_order)
         db.session.commit()
         for key, val in cart_object['item_names'].items():
-            new_product = Product(product_id=key, order_id=new_order.id, product_name=val, amount=cart_object['cart_quantities'][key]  )
+            new_product = Product(product_id=key, order_id=new_order.id, product_name=val, amount=cart_object['cart_quantities'][key])
             db.session.add(new_product)
             db.session.commit()
-
-
-
-
-
         return render_template("payment.html")
     return render_template("checkout.html", form=form)
 

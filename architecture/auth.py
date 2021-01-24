@@ -1,5 +1,6 @@
+from flask_login import login_required, current_user, login_user, logout_user
 from flask import Blueprint, render_template, redirect, url_for, request, flash
-from architecture.form_validation.main_validation import signupForm
+from architecture.form_validation.main_validation import signupForm, RegistrationForm
 from werkzeug.security import generate_password_hash, check_password_hash
 from . import db
 from .models import User
@@ -27,11 +28,26 @@ def signup_post():
         new_user = User(email=email, username=username, password=generate_password_hash(password, method='sha256'))
         db.session.add(new_user)
         db.session.commit()
-        return render_template("index.html")
+        form = RegistrationForm(request.form)
+        return render_template('checkout.html', form=form)
     return render_template('signup.html', form=form)
 
-@auth.route('/logged-in', methods=['POST'])
+
+@auth.route('/log_in', methods=['POST'])
 def logged_in():
-    return render_template('contact.html')
+    email = request.form.get('email')
+    password = request.form.get('password')
+    user = User.query.filter_by(email=email).first()
+    if not user or not check_password_hash(user.password, password):
+        flash('נא בדוק את פרטי ההתחברות ונסה שוב')
+        return redirect(url_for('auth.signup'))
+    login_user(user, remember="true")
+    return redirect(url_for('main.index'))
+
+
+@auth.route('/logout')
+def logout():
+    logout_user()
+    return redirect(url_for('main.index'))
 
 
