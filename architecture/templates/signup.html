@@ -19,6 +19,7 @@
                                 <div class="col-12">
                                     <div class="checkout__input">
                                         <input id="email" name="email" placeholder="אימייל" type="text" >
+                                        <input type="hidden" name="from_checkout" value="{{from_checkout}}">
                                     </div>
                                 </div>
                             </div>
@@ -66,6 +67,7 @@
                                 <div class="col-12">
                                     <div class="checkout__input">
                                         {{form.email_signup(placeholder="אימייל")}}
+                                        <input type="hidden" name="from_checkout" value="{{from_checkout}}">
                                     </div>
                                 </div>
                             </div>

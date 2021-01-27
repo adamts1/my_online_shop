@@ -352,16 +352,15 @@
     });
 
     $(window).scroll(function() {
-        // if($('header').width() > 1200){
         if ($(this).scrollTop() > 0) {
-            $('.header__top').hide();
+            $('.header__top').hide(300);
             $('.header__nav_bar').addClass("fixed");
 
         } else {
             if($('header').width() > 1200){
-                $('.header__top').show();
+                $('.header__top').show(300);
+                $('.header__nav_bar').removeClass( "fixed" );
             }
-            $('.header__nav_bar').removeClass( "fixed" );
 
         }
         // }

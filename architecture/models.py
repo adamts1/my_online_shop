@@ -15,6 +15,7 @@ class User(UserMixin, db.Model):
 class Order(db.Model):
     __tablename__ = 'order'
     id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(Integer, ForeignKey('user.id'))  # ForeignKey from User
     first_name = db.Column(db.String(100))
     sure_name = db.Column(db.String(100))
     phone = db.Column(db.String(100))
