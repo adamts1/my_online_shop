@@ -94,7 +94,6 @@ hr{
 	margin-left:0
 }
 
-
 .amount_wrapper
 {
 	margin-left: 58px;
@@ -264,6 +263,14 @@ ol {
 	border-radius: 60px;
 	animation: loader 0.8s linear infinite;
 	-webkit-animation: loader 0.8s linear infinite;
+}
+
+/*---------------------
+  Layout
+-----------------------*/
+
+.fa-shopping-bag{
+	color: white;
 }
 
 /*---------------------
@@ -649,8 +656,8 @@ form .error {
 }
 
 .header__cart ul li a i {
-	font-size: 18px;
-	color: #1c1c1c;
+	font-size: 25px;
+	color: white;
 }
 
 .header__cart ul li a span {
@@ -3528,6 +3535,11 @@ form .error {
 /* Tablet Device = 768px */
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
+
+	.header__cart ul li a i {
+		font-size: 25px;
+		color: black;
+	}
 	.hero__categories {
 		margin-bottom: 30px;
 	}
@@ -3765,6 +3777,11 @@ form .error {
 /* Wide Mobile = 480px */
 
 @media only screen and (max-width: 767px) {
+
+	.header__cart ul li a i {
+		font-size: 25px;
+		color: black;
+	}
 	.hero__categories {
 		margin-bottom: 30px;
 	}
@@ -4036,6 +4053,11 @@ form .error {
 /* Small Device = 320px */
 
 @media only screen and (max-width: 479px) {
+
+	.header__cart ul li a i {
+		font-size: 25px;
+		color: black;
+	}
 	.hero__search__form form .hero__search__categories {
 		display: none;
 	}

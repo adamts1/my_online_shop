@@ -7,6 +7,7 @@ from .models import User
 
 auth = Blueprint('auth', __name__)
 
+
 @auth.route('/signup')
 def signup():
     from_checkout = request.args.get('from_checkout')
