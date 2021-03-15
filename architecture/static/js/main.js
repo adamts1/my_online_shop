@@ -357,7 +357,7 @@
             $('.header__nav_bar').addClass("fixed");
 
         } else {
-            if($('header').width() > 1200){
+            if($('header').width() > 986){
                 $('.header__top').show(300);
                 $('.header__nav_bar').removeClass( "fixed" );
             }
@@ -365,6 +365,11 @@
         }
         // }
 
+    });
+// Mobile popup (right)
+    $("a.left_arrow").on('click', function () {
+        $(this).toggleClass("left_arrow_open")
+        $(this).parent().next().toggleClass("sub_dropdown_mobile_open")
     });
 
 

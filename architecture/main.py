@@ -8,7 +8,6 @@ from .models import Order, Product, User
 main = Blueprint('main', __name__)
 db.create_all(app=create_app())
 
-
 @main.route("/")
 def index():
     if current_user.is_authenticated:
@@ -38,7 +37,7 @@ def checkout():
     if current_user.is_authenticated:
         form = RegistrationForm(request.form)
         return render_template('checkout.html', form=form, name=current_user.username)
-    return redirect(url_for('auth.signup', from_checkout=True))
+    return redirect(url_for('auth.connect', from_checkout=True))
 
 
 @main.route("/create", methods=['POST'])

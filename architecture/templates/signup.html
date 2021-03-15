@@ -2,117 +2,134 @@
 {% block body %}
     <section class="breadcrumb-section set-bg" data-setbg="{{ url_for("static", filename="img/breadcrumb.jpg") }}"></section>
     <section class="hero">
-        <div class="inner_width z--1">
+        <div class="inner_width">
             <div class="width--730 center">
                 <h1 class="title--big">ביצוע הזמנה</h1>
                 <div class="box--white relative">
                     <div class="log-tx-top">צרו חשבון חדש או הכנסו לחשבון קיים</div>
                     <div class="log_tab">
                         <div class="log_tabs_in swipe-tabs center relative flex">
-                            <a id="not_member" class="log_tab title--36 swipe-tab">לקוח חדש</a>
-                            <a id="member" class="log_tab title--36 swipe-tab active">לקוח קיים</a>
+                            {% if signup_error %}
+                                <a id="not_member" class="log_tab title--36 swipe-tab active">לקוח חדש</a>
+                                <a id="member" class="log_tab title--36 swipe-tab">לקוח קיים</a>
+                            {% else %}
+                                <a id="not_member" class="log_tab title--36 swipe-tab">לקוח חדש</a>
+                                <a id="member" class="log_tab title--36 swipe-tab active">לקוח קיים</a>
+                            {% endif %}
                         </div>
                     </div>
-                    <div id="log_in" class="log_container active">
-                        <form action="/log_in" method="post" id="login_form" name="login_form" >
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="checkout__input">
-                                        <input id="email" name="email" placeholder="אימייל" type="text" >
-                                        <input type="hidden" name="from_checkout" value="{{from_checkout}}">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="checkout__input">
-                                        <input id="password" name="password" placeholder="סיסמה" type="password" >
-                                        {% with messages = get_flashed_messages() %}
-                                            {% if messages %}
-                                                <div class="error">
-                                                    {{ messages[0] }}
-                                                </div>
-                                            {% endif %}
-                                        {% endwith %}
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-12">
-                                    <a class="float-right">?שכחת סיסמה</a>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-12">
-                                    <button type="submit" class="site-btn payment">כניסה</button>
-                                </div>
-                            </div>
-                        </form>
+
+                    {% if signup_error %}
+                        <div id="log_in" class="log_container">
+                    {% else %}
+                        <div id="log_in" class="log_container active">
+                    {% endif %}
+                    <form action="/log_in" method="post" id="login_form" name="login_form" >
                         <div class="row">
                             <div class="col-12">
-                                <div class="or_line center relative">
-                                    <hr>
-                                    <div class="or_line_text z--1">או כניסה באמצעות</div>
+                                <div class="checkout__input">
+                                    <input id="email" name="email" placeholder="אימייל" type="text" >
+                                    <input type="hidden" name="from_checkout" value="{{from_checkout}}">
                                 </div>
                             </div>
                         </div>
-                        <div class="auth_login flex flex--content--center">
-                            <a class="bt_border">Google</a>
-                            <a class="bt_border">Facebook</a>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="checkout__input">
+                                    <input id="password" name="password" placeholder="סיסמה" type="password" >
+                                    {% with messages = get_flashed_messages() %}
+                                        {% if messages %}
+                                            <div class="error">
+                                                {{ messages[0] }}
+                                            </div>
+                                        {% endif %}
+                                    {% endwith %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <a class="float-right">?שכחת סיסמה</a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <button type="submit" class="site-btn payment">כניסה</button>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="or_line center relative">
+                                <hr>
+                                <div class="or_line_text z--1">או כניסה באמצעות</div>
+                            </div>
                         </div>
                     </div>
-                    <div id="signup" class="log_container">
-                        <form action="/signup" method="post" id="signup_form" name="signup_form" >
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="checkout__input">
-                                        {{form.email_signup(placeholder="אימייל")}}
-                                        <input type="hidden" name="from_checkout" value="{{from_checkout}}">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="checkout__input">
-                                        {{form.username_signup(placeholder="שם משתמש")}}
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="checkout__input">
-                                        {{form.password_signup(type="password", placeholder="סיסמה")}}
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="checkout__input">
-                                        {{form.repassword_signup(type="password", placeholder="אימות סיסמה")}}
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-12">
-                                    <button type="submit" class="site-btn payment">הרשמה</button>
-                                </div>
-                            </div>
-                        </form>
+                    <div class="auth_login flex flex--content--center">
+                        <a href="{{ url_for('oauth.login' ,from_checkout= from_checkout) }}" class="bt_border">Google</a>
+                        <a href="{{ url_for('oauth.login') }}" class="bt_border">Facebook</a>
+                    </div>
+                    </div>
+                    {% if signup_error %}
+                        <div id="signup" class="log_container active">
+                    {% else %}
+                        <div id="signup" class="log_container">
+                    {% endif %}
+                    <form action="/signup" method="post" id="signup_form" name="signup_form" >
                         <div class="row">
                             <div class="col-12">
-                                <div class="or_line center relative">
-                                    <hr>
-                                    <div class="or_line_text z--1">או הרשמה באמצעות</div>
+                                <div class="checkout__input">
+                                    {{form.email_signup(placeholder="אימייל")}}
+                                    {% if signup_error %}
+                                        <div class=error>{{ signup_error }} </div>
+                                    {% endif %}
+                                    <input type="hidden" name="from_checkout" value="{{from_checkout}}">
                                 </div>
                             </div>
                         </div>
-                        <div class="auth_login flex flex--content--center">
-                            <a class="bt_border">Google</a>
-                            <a class="bt_border">Facebook</a>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="checkout__input">
+                                    {{form.username_signup(placeholder="שם משתמש")}}
+                                </div>
+                            </div>
                         </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="checkout__input">
+                                    {{form.password_signup(type="password", placeholder="סיסמה")}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="checkout__input">
+                                    {{form.repassword_signup(type="password", placeholder="אימות סיסמה")}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <button type="submit" class="site-btn payment">הרשמה</button>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="or_line center relative">
+                                <hr>
+                                <div class="or_line_text z--1">או הרשמה באמצעות</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="auth_login flex flex--content--center">
+                        <a href="{{ url_for('oauth.login', from_checkout= True ) }}" class="bt_border">Google</a>
+                        <a href="{{ url_for('oauth.login') }}" class="bt_border">Facebook</a>
+                    </div>
+                    </div>
+                    </div>
                     </div>
                 </div>
-            </div>
-        </div>
     </section>
 {% endblock %}
